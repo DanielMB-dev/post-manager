@@ -1,0 +1,30 @@
+{
+  "name": "post-manager",
+  "version": "1.0.0",
+  "description": "posts manager backend",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "seed": "node helpers/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielMB-dev/post-manager.git"
+  },
+  "author": "daniel machado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielMB-dev/post-manager/issues"
+  },
+  "homepage": "https://github.com/DanielMB-dev/post-manager#readme",
+  "dependencies": {
+    "@prisma/client": "^6.12.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.12.0"
+  }
+}
