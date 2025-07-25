@@ -1,5 +1,5 @@
 /* Types */
-import type { Post as PostType } from "../services/api"
+import type { Post as PostType } from "../../services/api"
 
 interface PostProps {
     post: PostType

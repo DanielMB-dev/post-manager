@@ -1,9 +1,9 @@
 
 /* Redux */
-import { createPost, updatePost } from "../store/postsSlice"
-import { useAppDispatch } from "../hooks/redux"
+import { createPost, updatePost } from "../../store/postsSlice"
+import { useAppDispatch } from "../../hooks/redux"
 /* Service */
-import type { CreatePostData } from "../services/api";
+import type { CreatePostData } from "../../services/api";
 
 
 interface CreateEditFormProps {

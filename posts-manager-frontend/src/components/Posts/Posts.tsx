@@ -2,15 +2,23 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 /* Redux */
-import { useAppDispatch, useAppSelector } from "../hooks/redux"
-import { fetchPosts, deletePost, clearError } from "../store/postsSlice"
-import { selectFilteredPosts } from "../store/selectors/filterSelector"
+import { useAppDispatch, useAppSelector } from "../../hooks/redux.ts"
+import { fetchPosts, deletePost, clearError } from "../../store/postsSlice.ts"
+import { selectFilteredPosts } from "../../store/selectors/filterSelector.ts"
 /*  Service */
-import type { CreatePostData } from "../services/api"
+import type { CreatePostData } from "../../services/api.ts"
 
 
 /* Components */
-import { Filter, Post } from "."
+
+import { Loading } from "../ui/index.ts"
+import { EmptyPostsList, Post, PostsHeader } from "./index.ts"
+import { Filter } from "../Form/index.ts"
+
+
+
+
+
 
 // Variable global para evitar doble fetch en desarrollo
 let hasInitialFetch = false
@@ -64,12 +72,7 @@ export const Posts = ({ setEditingPost, setFormData, setShowForm, scrollToForm }
 
     if (loading) {
         return (
-            <div className="posts-loading">
-                <div className="posts-loading-content">
-                    <div className="posts-loading-spinner"></div>
-                    Cargando posts...
-                </div>
-            </div>
+            <Loading message={'Cargando posts...'} />
         )
     }
 
@@ -77,21 +80,10 @@ export const Posts = ({ setEditingPost, setFormData, setShowForm, scrollToForm }
         <>
             <Filter />
             <div style={{ marginTop: '1.5rem' }}>
-                <h2 className="posts-header">
-                    📋 Lista de Posts
-                    <span className="posts-count-badge">
-                        {filteredPosts.length}
-                    </span>
-                </h2>
+                <PostsHeader postsCounter={filteredPosts.length} title={"📋 Lista de Posts"} />
 
                 {filteredPosts.length === 0 ? (
-                    <div className="posts-empty-state">
-                        <div className="posts-empty-icon">📝</div>
-                        <p className="posts-empty-title">No hay posts disponibles</p>
-                        <p className="posts-empty-subtitle">
-                            Crea tu primer post usando el formulario
-                        </p>
-                    </div>
+                    <EmptyPostsList />
                 ) : (
                     <div className="posts-list">
                         {filteredPosts.map((post, index) => (
