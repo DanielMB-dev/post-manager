@@ -2,18 +2,18 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 /* Redux */
-import { useAppDispatch, useAppSelector } from "../../hooks/redux.ts"
-import { fetchPosts, deletePost, clearError } from "../../store/postsSlice.ts"
-import { selectFilteredPosts } from "../../store/selectors/filterSelector.ts"
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts"
+import { fetchPosts, deletePost, clearError } from "../../../../store/postsSlice.ts"
+import { selectFilteredPosts } from "../../../../store/selectors/filterSelector.ts"
 /*  Service */
-import type { CreatePostData } from "../../services/api.ts"
+import type { CreatePostData } from "../../../../services/api.ts"
 
 
 /* Components */
 
-import { Loading } from "../ui/index.ts"
+import { Loading } from "../../../common/index.ts"
 import { EmptyPostsList, Post, PostsHeader } from "./index.ts"
-import { Filter } from "../Form/index.ts"
+import { Filter } from "../../forms/components/index.ts"
 
 
 
@@ -86,7 +86,7 @@ export const Posts = ({ setEditingPost, setFormData, setShowForm, scrollToForm }
                     <EmptyPostsList />
                 ) : (
                     <div className="posts-list">
-                        {filteredPosts.map((post, index) => (
+                        {filteredPosts.map((post) => (
                             <Post key={post.id} handleDelete={handleDelete} handleEdit={handleEdit} post={post} />
                         ))}
                     </div>

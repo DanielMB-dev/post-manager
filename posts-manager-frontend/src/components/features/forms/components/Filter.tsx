@@ -1,8 +1,8 @@
 /* Redux */
 import { useSelector } from "react-redux"
-import { setNameFilter, clearNameFilter } from "../../store/postsSlice"
-import { useAppDispatch } from "../../hooks/redux"
-import { selectNameFilter } from "../../store/selectors/filterSelector"
+import { setNameFilter, clearNameFilter } from "../../../../store/postsSlice"
+import { useAppDispatch } from "../../../../hooks/redux"
+import { selectNameFilter } from "../../../../store/selectors/filterSelector"
 
 export const Filter = () => {
     const nameFilter = useSelector(selectNameFilter)

@@ -3,8 +3,8 @@ import { useState, useRef } from 'react'
 import './App.css'
 
 import type { CreatePostData } from './services/api'
-import { CreateEditForm } from './components/Form'
-import { Posts } from './components/Posts'
+import { CreateEditForm } from './components/features/forms/components'
+import { Posts } from './components/features/posts/components'
 
 
 function App() {
